@@ -7,10 +7,10 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.ambientinformatica.util.UtilLog;
 import br.com.sisfacil.passefacil.entidade.EnumPapelUsuario;
 import br.com.sisfacil.passefacil.entidade.Usuario;
 import br.com.sisfacil.passefacil.persistencia.UsuarioDao;
-import br.com.ambientinformatica.util.UtilLog;
 
 @Service("inicializadorSistema")
 public class InicializadorSistema {

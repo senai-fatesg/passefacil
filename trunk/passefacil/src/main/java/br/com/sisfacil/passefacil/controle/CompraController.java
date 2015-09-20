@@ -18,11 +18,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlAttribute;
 
-import com.sun.org.apache.xerces.internal.impl.dtd.models.CMLeaf;
-import com.sun.xml.internal.txw2.annotation.XmlElement;
-
 import sun.net.www.URLConnection;
-import br.com.sisfacil.passefacil.entidade.*;
+import br.com.sisfacil.passefacil.entidade.DTOCompra;
 import br.com.sisfacil.passefacil.entidade.compra.Checkout;
 import br.com.sisfacil.passefacil.entidade.compra.Item;
 import br.com.sisfacil.passefacil.entidade.compra.Phone;

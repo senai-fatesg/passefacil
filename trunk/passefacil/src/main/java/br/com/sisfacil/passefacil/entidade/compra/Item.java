@@ -1,7 +1,5 @@
 package br.com.sisfacil.passefacil.entidade.compra;
 
-import java.math.BigDecimal;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
