@@ -1,30 +1,22 @@
 package br.com.sisfacil.passefacil.controle;
 
-import java.math.BigDecimal;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javassist.bytecode.ByteArray;
-
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import br.com.sysfacil.passefacil.entidade.*;
-import br.com.sysfacil.passefacil.entidade.Aparelho;
-import br.com.sysfacil.passefacil.entidade.Usuario1;
-import br.com.sysfacil.passefacil.entidade.ObjetoComunicacao;
-import br.com.sysfacil.passefacil.util.ConvertJson;
-import br.com.sysfacil.passefacil.util.UtilitarioCriptografia;
+import br.com.sisfacil.passefacil.entidade.Aparelho;
+import br.com.sisfacil.passefacil.entidade.DTOCompra;
+import br.com.sisfacil.passefacil.entidade.ObjetoComunicacao;
+import br.com.sisfacil.passefacil.entidade.Usuario1;
+import br.com.sisfacil.passefacil.util.ConvertJson;
 
 import com.google.gson.Gson;
 

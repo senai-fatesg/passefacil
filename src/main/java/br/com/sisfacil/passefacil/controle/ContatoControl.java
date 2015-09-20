@@ -11,8 +11,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import br.com.ambientinformatica.ambientjsf.util.UtilFaces;
-
-import br.com.sisfacil.passefacil.entidade.Contato;
 import br.com.sisfacil.passefacil.entidade.Contato;
 import br.com.sisfacil.passefacil.persistencia.ContatoDao;
 

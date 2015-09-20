@@ -1,8 +1,8 @@
 package br.com.sisfacil.passefacil.util;
 
-import com.google.gson.Gson;
+import br.com.sisfacil.passefacil.entidade.ObjetoComunicacao;
 
-import br.com.sysfacil.passefacil.entidade.ObjetoComunicacao;
+import com.google.gson.Gson;
 
 public class ConvertJson {
 
