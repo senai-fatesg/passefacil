@@ -25,12 +25,6 @@
 	
 		<dependencies>
 			<dependency>
-				<groupId>br.com.ambientinformatica.fatesg</groupId>
-				<artifactId>fatesg-api</artifactId>
-				<version>0.0.2-SNAPSHOT</version>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
 				<groupId>postgresql</groupId>
 				<artifactId>postgresql</artifactId>
 				<version>9.1-901.jdbc4</version>
