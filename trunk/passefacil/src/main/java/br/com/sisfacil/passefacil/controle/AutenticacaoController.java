@@ -12,11 +12,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.com.sisfacil.passefacil.dto.DTOCompra;
 import br.com.sisfacil.passefacil.entidade.Aparelho;
-import br.com.sisfacil.passefacil.entidade.DTOCompra;
-import br.com.sisfacil.passefacil.entidade.ObjetoComunicacao;
-import br.com.sisfacil.passefacil.entidade.Usuario1;
+import br.com.sisfacil.passefacil.entidade.Pessoa;
 import br.com.sisfacil.passefacil.util.ConvertJson;
+import br.com.sisfacil.passefacil.vo.ObjetoComunicacaoVO;
 
 import com.google.gson.Gson;
 
@@ -53,10 +53,10 @@ public class AutenticacaoController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String postAutenticar(String credencial){
 		
-		ObjetoComunicacao objetoComunicacao = new ObjetoComunicacao();
+		ObjetoComunicacaoVO objetoComunicacao = new ObjetoComunicacaoVO();
 		Gson gson = new Gson();
 		objetoComunicacao = ConvertJson.ConvertJsonEmObjeto(credencial);
-		objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), Usuario1.class));
+		objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), Pessoa.class));
 		
 		if(!objetoComunicacao.getObjetoAutenticacao().isEmpty()){
 			//verificar se existe dados
@@ -76,10 +76,10 @@ public class AutenticacaoController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String postCompraCredito(String objetoRecebido){
 		
-		ObjetoComunicacao objetoComunicacao = new ObjetoComunicacao();
+		ObjetoComunicacaoVO objetoComunicacao = new ObjetoComunicacaoVO();
 		Gson gson = new Gson();
 		objetoComunicacao = ConvertJson.ConvertJsonEmObjeto(objetoRecebido);
-		objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), Usuario1.class));
+		objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), Pessoa.class));
 		
 		if(!objetoComunicacao.getObjetoAutenticacao().isEmpty()){
 			//
@@ -99,13 +99,13 @@ public class AutenticacaoController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String postRegistrar(String objetoRecebido){
 		
-		ObjetoComunicacao objetoComunicacao = new ObjetoComunicacao();
+		ObjetoComunicacaoVO objetoComunicacao = new ObjetoComunicacaoVO();
 		Gson gson = new Gson();
 		objetoComunicacao = ConvertJson.ConvertJsonEmObjeto(objetoRecebido);
-		objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), Usuario1.class));
+		objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), Pessoa.class));
 		
-		Usuario1 cliente = new Usuario1();
-		cliente = (Usuario1)objetoComunicacao.getObjetoRetorno();
+		Pessoa cliente = new Pessoa();
+		cliente = (Pessoa)objetoComunicacao.getObjetoRetorno();
 		if(!cliente.getCredencialAcesso().getNfcid().isEmpty()){
 			//verificar se ja existe cliente cadastrado na base de dados com o nfcid e imei
 
@@ -113,7 +113,7 @@ public class AutenticacaoController {
 			//salvar cliente na base de dados de acordo com o tipo do cliente
 			
 			//devolve status para o smatphone por meio do json(ObjetoComunicacao)
-			objetoComunicacao = new ObjetoComunicacao();
+			objetoComunicacao = new ObjetoComunicacaoVO();
 			objetoComunicacao.setStatus(true);
 			mensagem = "As informa��es foram salvas com sucesso!";
 			objetoComunicacao.setMensagem(mensagem);
@@ -121,7 +121,7 @@ public class AutenticacaoController {
 			
 		}else{
 			//Objeto que ser� retornado caso o NFC ou o IMEI do aparelho n�o forem obtidos
-			objetoComunicacao = new ObjetoComunicacao();
+			objetoComunicacao = new ObjetoComunicacaoVO();
 			objetoComunicacao.setStatus(false);
 			mensagem = "N�o foi poss�vel receber o NFC ou o Imei do seu aparelho";
 			objetoComunicacao.setMensagem(mensagem);
