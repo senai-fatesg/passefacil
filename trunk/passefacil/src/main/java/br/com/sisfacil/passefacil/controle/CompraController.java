@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlAttribute;
 
 import sun.net.www.URLConnection;
-import br.com.sisfacil.passefacil.entidade.DTOCompra;
+import br.com.sisfacil.passefacil.dto.DTOCompra;
 import br.com.sisfacil.passefacil.entidade.compra.Checkout;
 import br.com.sisfacil.passefacil.entidade.compra.Item;
 import br.com.sisfacil.passefacil.entidade.compra.Phone;

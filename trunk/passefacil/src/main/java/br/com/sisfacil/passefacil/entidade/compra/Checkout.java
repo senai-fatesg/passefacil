@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.sisfacil.passefacil.entidade.DTOCompra;
+import br.com.sisfacil.passefacil.dto.*;
 
 @XmlRootElement
 public class Checkout {
