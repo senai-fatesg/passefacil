@@ -1,14 +1,15 @@
 package br.com.sisfacil.passefacil.util;
 
-import br.com.sisfacil.passefacil.entidade.ObjetoComunicacao;
+import br.com.sisfacil.passefacil.vo.ObjetoComunicacaoVO;
 
 import com.google.gson.Gson;
 
+
 public class ConvertJson {
 
-	public static ObjetoComunicacao ConvertJsonEmObjeto(String objeto) {
+	public static ObjetoComunicacaoVO ConvertJsonEmObjeto(String objeto) {
 		Gson gson = new Gson();
-		return gson.fromJson(objeto, ObjetoComunicacao.class);
+		return gson.fromJson(objeto, ObjetoComunicacaoVO.class);
 	}
 
 	public static String ConvertObjetoEmJson(Object objeto) {
