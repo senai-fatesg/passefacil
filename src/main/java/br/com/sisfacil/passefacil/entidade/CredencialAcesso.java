@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -15,6 +16,8 @@ public class CredencialAcesso {
 	private Integer id;
 	
 	private String nfcid;
+	
+	@ManyToOne(optional=false)
 	private Aparelho aparelho;
 	
 	public CredencialAcesso(){

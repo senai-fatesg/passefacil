@@ -1,4 +1,4 @@
-package br.com.sisfacil.passefacil.entidade;
+package br.com.sisfacil.passefacil.dto;
 
 import java.math.BigDecimal;
 import java.util.Date;

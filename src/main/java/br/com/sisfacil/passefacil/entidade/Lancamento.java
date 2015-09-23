@@ -2,11 +2,15 @@ package br.com.sisfacil.passefacil.entidade;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@Entity
 public class Lancamento {
 
 	@Id
@@ -15,14 +19,24 @@ public class Lancamento {
 	private Integer id;
 	
 	private double valor;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataLancamento;
 
-	public Integer getId() {
-		return id;
+	public void creditar(double valorCreditar){
+		//TODO ainda nao implementado
+	}
+	
+	public void debitar(double valorDebitar){
+		//TODO ainda nao implementado
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	
+	/*
+	 * Getters and Setters
+	 */
+	public Integer getId() {
+		return id;
 	}
 
 	public double getValor() {
@@ -41,12 +55,5 @@ public class Lancamento {
 		this.dataLancamento = dataLancamento;
 	}
 
-	public void creditar(double valorCreditar){
-		
-	}
-	
-	public void debitar(double valorDebitar){
-		
-	}
 	
 }
