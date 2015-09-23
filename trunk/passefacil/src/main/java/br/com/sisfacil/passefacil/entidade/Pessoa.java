@@ -4,24 +4,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Usuario1 {
+public class Pessoa {
 
 	@Id
-	@GeneratedValue(generator = "usuario_seq", strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_seq", allocationSize = 1, initialValue = 1)
+	@GeneratedValue(generator = "pessoa_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "pessoa_seq", sequenceName = "pessoa_seq", allocationSize = 1, initialValue = 1)
 	private Integer id;
 	
 	private String nome;
+	
 	private String cpf;
+	
 	private String telefone;
+	
+	@ManyToOne(optional=false)
 	private Credencial credencial;
+	
+	@ManyToOne(optional=false)
 	private CredencialAcesso credencialAcesso;
+	
+	@ManyToOne(optional=false)
 	private Conta conta;
 
-	public Usuario1(){
+	public Pessoa(){
 		credencialAcesso = new CredencialAcesso();
 		conta = new Conta();
 	}

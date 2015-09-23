@@ -1,6 +1,6 @@
-package br.com.sisfacil.passefacil.entidade;
+package br.com.sisfacil.passefacil.vo;
 
-public class ObjetoComunicacao {
+public class ObjetoComunicacaoVO {
 
 	private String mensagem;
 	private Boolean status;
