@@ -18,6 +18,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlAttribute;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
 import sun.net.www.URLConnection;
 import br.com.sisfacil.passefacil.dto.DTOCompra;
 import br.com.sisfacil.passefacil.entidade.compra.Checkout;
@@ -25,6 +28,8 @@ import br.com.sisfacil.passefacil.entidade.compra.Item;
 import br.com.sisfacil.passefacil.entidade.compra.Phone;
 import br.com.sisfacil.passefacil.entidade.compra.Sender;
 
+@Controller("CompraController")
+@Scope("conversation")
 @Path("/compra")
 public class CompraController {
 

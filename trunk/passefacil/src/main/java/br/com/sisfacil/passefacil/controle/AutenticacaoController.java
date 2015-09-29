@@ -12,6 +12,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
 import br.com.sisfacil.passefacil.dto.DTOCompra;
 import br.com.sisfacil.passefacil.entidade.Aparelho;
 import br.com.sisfacil.passefacil.entidade.Pessoa;
@@ -20,13 +23,13 @@ import br.com.sisfacil.passefacil.vo.ObjetoComunicacaoVO;
 
 import com.google.gson.Gson;
 
+@Controller("AutenticacaoController")
+@Scope("conversation")
 @Path("/autenticacao")
 public class AutenticacaoController {
 
 	private Aparelho aparelho;
 	private String mensagem;
-	
-	
 	
 	static private Map<Integer, DTOCompra> dtoCompraMap;
 	
@@ -60,8 +63,8 @@ public class AutenticacaoController {
 		
 		if(!objetoComunicacao.getObjetoAutenticacao().isEmpty()){
 			//verificar se existe dados
-			//verificar se aparelho e pr�-pago ou p�s-pago
-			//
+			//verificar se aparelho e pre-pago ou pos-pago
+			
 			return gson.toJson(objetoComunicacao);
 			
 		}else{
@@ -82,8 +85,6 @@ public class AutenticacaoController {
 		objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), Pessoa.class));
 		
 		if(!objetoComunicacao.getObjetoAutenticacao().isEmpty()){
-			//
-			
 			
 			return gson.toJson(objetoComunicacao);
 			
@@ -115,15 +116,15 @@ public class AutenticacaoController {
 			//devolve status para o smatphone por meio do json(ObjetoComunicacao)
 			objetoComunicacao = new ObjetoComunicacaoVO();
 			objetoComunicacao.setStatus(true);
-			mensagem = "As informa��es foram salvas com sucesso!";
+			mensagem = "As informações foram salvas com sucesso!";
 			objetoComunicacao.setMensagem(mensagem);
 			objetoComunicacao.setObjetoRetorno(true);
 			
 		}else{
-			//Objeto que ser� retornado caso o NFC ou o IMEI do aparelho n�o forem obtidos
+			//Objeto que será retornado caso o NFC ou o IMEI do aparelho não forem obtidos
 			objetoComunicacao = new ObjetoComunicacaoVO();
 			objetoComunicacao.setStatus(false);
-			mensagem = "N�o foi poss�vel receber o NFC ou o Imei do seu aparelho";
+			mensagem = "Não e possiveil receber o IMEI do aparelho";
 			objetoComunicacao.setMensagem(mensagem);
 			objetoComunicacao.setObjetoRetorno(gson.toJson(cliente));
 		}
