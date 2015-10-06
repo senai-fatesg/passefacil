@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.google.gson.Gson;
 
-import br.com.sisfacil.passefacil.entidade.HistoricoLogin;
+import br.com.sisfacil.passefacil.entidade.HistoricoLancamento;
 import br.com.sisfacil.passefacil.negocio.Autenticacao;
 import br.com.sisfacil.passefacil.persistencia.HistoricoLoginDao;
 import br.com.sisfacil.passefacil.util.ConvertJson;
@@ -29,7 +29,7 @@ public class HistoricoController {
 	@Autowired
 	private HistoricoLoginDao historicoDao;
 	
-	private List<HistoricoLogin> Historicos = new ArrayList<HistoricoLogin>();
+	private List<HistoricoLancamento> Historicos = new ArrayList<HistoricoLancamento>();
 	
 	
 	public HistoricoController() { }
@@ -43,15 +43,15 @@ public class HistoricoController {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String postObtenhaHistoricoPorId(String objetoHistorico){
-		
+	public String postObtenhaHistoricoPorId(){
+		//String postObtenhaHistoricoPorId(String objetoHistorico)
 		ObjetoComunicacaoVO objetoErroComunicacao = new ObjetoComunicacaoVO();//Objeto utilizado para a converção do Json recebido
 		ObjetoComunicacaoVO objetoComunicacao = new ObjetoComunicacaoVO();//objeto utilizado quando ocorreu algum erro durante a execução do programa
 		Gson gson = new Gson();
 		
 		try{
-			objetoComunicacao = ConvertJson.ConvertJsonEmObjeto(objetoHistorico);
-			objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), HistoricoLogin.class));
+			//objetoComunicacao = ConvertJson.ConvertJsonEmObjeto(objetoHistorico);
+			objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), HistoricoLancamento.class));
 			
 			if(!objetoComunicacao.getObjetoAutenticacao().isEmpty()){
 				//TODO implementar a autenticação do usuario
@@ -59,8 +59,8 @@ public class HistoricoController {
 				autenticacao.Autenticar(objetoComunicacao.getObjetoAutenticacao());
 				
 				//Obtendo o historico por meio do id informado
-				HistoricoLogin historicoLogin = new HistoricoLogin();
-				historicoLogin = (HistoricoLogin)objetoComunicacao.getObjetoRetorno();
+				HistoricoLancamento historicoLogin = new HistoricoLancamento();
+				historicoLogin = (HistoricoLancamento)objetoComunicacao.getObjetoRetorno();
 				historicoDao.consultar(historicoLogin.getId());
 				
 			}else{
@@ -75,7 +75,7 @@ public class HistoricoController {
 			objetoErroComunicacao.setObjetoRetorno(objetoComunicacao.getObjetoRetorno());
 			return ConvertJson.ConvertObjetoEmJson(objetoErroComunicacao);
 		}
-		return ConvertJson.ConvertObjetoEmJson(objetoComunicacao);
+		return "Certo";//ConvertJson.ConvertObjetoEmJson(objetoComunicacao);
 	}
 	
 	
@@ -91,14 +91,14 @@ public class HistoricoController {
 		
 		try{
 			objetoComunicacao = ConvertJson.ConvertJsonEmObjeto(objetoHistorico);
-			objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), HistoricoLogin.class));
+			objetoComunicacao.setObjetoRetorno(gson.fromJson(objetoComunicacao.getObjetoRetorno().toString(), HistoricoLancamento.class));
 			
 			if(!objetoComunicacao.getObjetoAutenticacao().isEmpty()){
 				//TODO implementar a autenticação do usuario
 				
 				//Obtendo o historico por meio do id informado
-				HistoricoLogin historicoLogin = new HistoricoLogin();
-				historicoLogin = (HistoricoLogin)objetoComunicacao.getObjetoRetorno();
+				HistoricoLancamento historicoLogin = new HistoricoLancamento();
+				historicoLogin = (HistoricoLancamento)objetoComunicacao.getObjetoRetorno();
 				objetoComunicacao.setObjetoRetorno(historicoDao.listarHistoricosPorId(historicoLogin.getId()));
 				
 			}else{

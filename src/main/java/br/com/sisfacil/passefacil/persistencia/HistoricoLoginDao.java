@@ -4,10 +4,10 @@ import java.util.List;
 
 import br.com.ambientinformatica.jpa.exception.PersistenciaException;
 import br.com.ambientinformatica.jpa.persistencia.Persistencia;
-import br.com.sisfacil.passefacil.entidade.HistoricoLogin;
+import br.com.sisfacil.passefacil.entidade.HistoricoLancamento;
 
-public interface HistoricoLoginDao extends Persistencia<HistoricoLogin>{
+public interface HistoricoLoginDao extends Persistencia<HistoricoLancamento>{
 
-	public List<HistoricoLogin> listarHistoricosPorId(long codigo) throws PersistenciaException;
+	public List<HistoricoLancamento> listarHistoricosPorId(long codigo) throws PersistenciaException;
 	
 }

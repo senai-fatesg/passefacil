@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ambientinformatica.jpa.exception.PersistenciaException;
 import br.com.ambientinformatica.jpa.persistencia.PersistenciaJpa;
-import br.com.sisfacil.passefacil.entidade.HistoricoLogin;
+import br.com.sisfacil.passefacil.entidade.HistoricoLancamento;
 
 @Repository("historicoLoginDao")
-public class HistoricoLoginDaoJpa extends PersistenciaJpa<HistoricoLogin> implements HistoricoLoginDao {
+public class HistoricoLoginDaoJpa extends PersistenciaJpa<HistoricoLancamento> implements HistoricoLoginDao {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,7 +21,7 @@ public class HistoricoLoginDaoJpa extends PersistenciaJpa<HistoricoLogin> implem
 	@SuppressWarnings("unchecked")
 	@Transactional(rollbackFor=PersistenciaException.class)
 	@Override
-	public List<HistoricoLogin> listarHistoricosPorId(long codigo) throws PersistenciaException{
+	public List<HistoricoLancamento> listarHistoricosPorId(long codigo) throws PersistenciaException{
 		try {
 			Query query = em.createQuery("select e from historicologin where id = " + codigo +  " e");
 			query.setMaxResults(200);

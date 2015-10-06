@@ -6,9 +6,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Item {
 
 	private String id; //id do servico
-	private String description; //descricao do produto/servico
+	private static String description = "COMPRA DE CRÉDITO"; //descricao do produto/servico
 	private double amount; //valor do servico, representa o pre�o unitario do servico
-	private int quantity = 1; //quantidade do produto
+	private static int quantity = 1; //quantidade do produto
 	private double weight; //corresponde ao peso
 	
 	
