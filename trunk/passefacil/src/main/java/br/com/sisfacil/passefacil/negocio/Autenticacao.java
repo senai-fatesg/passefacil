@@ -25,8 +25,6 @@ public class Autenticacao {
 			}else{
 				resultado = false;
 			}
-			
-			
 		}catch(Exception erro){
 			throw new Exception("Falha na autenticação. Erro ocorreu devido a:" + erro.getMessage());
 		}

@@ -1,11 +1,15 @@
 package br.com.sisfacil.passefacil.entidade;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Pessoa {
@@ -20,6 +24,9 @@ public class Pessoa {
 	private String cpf;
 	
 	private String telefone;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataNascimento;
 	
 	@ManyToOne(optional=false)
 	private Credencial credencial;
@@ -89,5 +96,13 @@ public class Pessoa {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 }

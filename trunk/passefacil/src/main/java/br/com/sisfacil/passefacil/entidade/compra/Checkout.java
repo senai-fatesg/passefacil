@@ -10,12 +10,12 @@ import br.com.sisfacil.passefacil.dto.*;
 @XmlRootElement
 public class Checkout {
 
-	private int id; //numero do pedido **n�o vai para o pagseguro
+	private int id; //numero do pedido não vai para o pagseguro
 	
 	private String currency = "BRL"; //moeda utilizada
 	private Item item; //item vendido
 	private List<Item> itens; //itens vendidos
-	private String reference; //C�digo de refer�ncia.
+	private String reference; //Codigo de referencia.
 	private Sender sender; //Dados do comprador.
 	
 	public void Currency(){
