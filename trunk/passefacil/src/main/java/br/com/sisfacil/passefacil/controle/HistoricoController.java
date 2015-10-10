@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 
 import com.google.gson.Gson;
 
@@ -21,7 +22,7 @@ import br.com.sisfacil.passefacil.persistencia.HistoricoLoginDao;
 import br.com.sisfacil.passefacil.util.ConvertJson;
 import br.com.sisfacil.passefacil.vo.ObjetoComunicacaoVO;
 
-//@Controller("HistoricoController")
+@Controller("historicoController")
 @Scope("conversation")
 @Path("/historico")
 public class HistoricoController {
