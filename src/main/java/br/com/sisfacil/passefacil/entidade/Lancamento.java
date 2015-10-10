@@ -23,12 +23,12 @@ public class Lancamento {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataLancamento;
 
-	public void creditar(double valorCreditar){
-		//TODO ainda nao implementado
+	public double creditar(double valorCreditar){
+		return valor += valorCreditar;
 	}
 	
-	public void debitar(double valorDebitar){
-		//TODO ainda nao implementado
+	public double debitar(double valorDebitar){
+		return valor -= valorDebitar;
 	}
 
 	
