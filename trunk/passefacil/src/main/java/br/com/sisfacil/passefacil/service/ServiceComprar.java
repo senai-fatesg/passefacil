@@ -1,4 +1,4 @@
-package br.com.sisfacil.passefacil.controle;
+package br.com.sisfacil.passefacil.service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -18,9 +18,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlAttribute;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
-
 import sun.net.www.URLConnection;
 import br.com.sisfacil.passefacil.dto.DTOCompra;
 import br.com.sisfacil.passefacil.entidade.compra.Checkout;
@@ -28,11 +25,10 @@ import br.com.sisfacil.passefacil.entidade.compra.Item;
 import br.com.sisfacil.passefacil.entidade.compra.Phone;
 import br.com.sisfacil.passefacil.entidade.compra.Sender;
 
-@Controller("CompraController")
-@Scope("conversation")
-@Path("/compra")
-public class CompraController {
+@Path("/comprar")
+public class ServiceComprar {
 
+	
 	private Checkout checkout;
 	static private Map<Integer, Checkout> checkoutEnvioMap;
 	private static DTOCompra compra = new DTOCompra();
@@ -145,7 +141,6 @@ public class CompraController {
 		try {
 			item.setDescription("compra de credito");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		item.setId("1");
@@ -162,7 +157,6 @@ public class CompraController {
 		try {
 			checkout.setReference("REFPASFACIL");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		};
 		checkout.setSender(sender);
@@ -207,6 +201,5 @@ public class CompraController {
 		
 		checkoutEnvioMap.put(checkout.getId(), checkout);
 	}
-	
 	
 }

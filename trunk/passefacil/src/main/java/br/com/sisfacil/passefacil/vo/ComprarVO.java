@@ -1,6 +1,6 @@
 package br.com.sisfacil.passefacil.vo;
 
-public class CompraVO {
+public class ComprarVO {
 
 	private String mensagem;
 	private double valor;

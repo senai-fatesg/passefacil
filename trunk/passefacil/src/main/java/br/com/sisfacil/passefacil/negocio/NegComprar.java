@@ -4,15 +4,15 @@ import br.com.ambientinformatica.jpa.exception.PersistenciaException;
 import br.com.sisfacil.passefacil.entidade.Lancamento;
 import br.com.sisfacil.passefacil.persistencia.LancamentoDao;
 import br.com.sisfacil.passefacil.util.UtilitarioDateTime;
-import br.com.sisfacil.passefacil.vo.CompraVO;
+import br.com.sisfacil.passefacil.vo.ComprarVO;
 
-public class Compra {
+public class NegComprar {
 
 	private Lancamento lancamento = new Lancamento();
 	private LancamentoDao lancamentoDao;
 	
-	public CompraVO creditar(double valorCreditar, int id)throws Exception{
-		CompraVO compraVO = new CompraVO();
+	public ComprarVO creditar(double valorCreditar, int id)throws Exception{
+		ComprarVO compraVO = new ComprarVO();
 		try {
 			lancamento.setValor(lancamentoDao.consultar(id).getValor());
 			lancamento.setDataLancamento(UtilitarioDateTime.ToHoraAtual());
@@ -25,8 +25,8 @@ public class Compra {
 		return compraVO;
 	}
 	
-	public CompraVO debitar(double valorDebitar, int id) throws Exception{
-		CompraVO compraVO = new CompraVO();
+	public ComprarVO debitar(double valorDebitar, int id) throws Exception{
+		ComprarVO compraVO = new ComprarVO();
 		try{
 			lancamento.setValor(lancamentoDao.consultar(id).getValor());
 			lancamento.setDataLancamento(UtilitarioDateTime.ToHoraAtual());
