@@ -1,4 +1,4 @@
-package br.com.sisfacil.passefacil.controle;
+package br.com.sisfacil.passefacil.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,9 +12,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
-
 import br.com.sisfacil.passefacil.dto.DTOCompra;
 import br.com.sisfacil.passefacil.entidade.Aparelho;
 import br.com.sisfacil.passefacil.entidade.Pessoa;
@@ -23,13 +20,13 @@ import br.com.sisfacil.passefacil.vo.ObjetoComunicacaoVO;
 
 import com.google.gson.Gson;
 
-@Controller("AutenticacaoController")
-@Scope("conversation")
-@Path("/autenticacao")
-public class AutenticacaoController {
+@Path("/autenticar")
+public class ServiceAutenticar {
 
 	private Aparelho aparelho;
 	private String mensagem;
+	
+	//TODO implementar service para autenticar o usuario no momento do login
 	
 	static private Map<Integer, DTOCompra> dtoCompraMap;
 	
@@ -131,6 +128,7 @@ public class AutenticacaoController {
 		
 		return ConvertJson.ConvertObjetoEmJson(objetoComunicacao);
 	}
+	
 	
 	
 }

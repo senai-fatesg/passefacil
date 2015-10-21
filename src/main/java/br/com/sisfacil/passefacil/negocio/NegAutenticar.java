@@ -6,7 +6,7 @@ import br.com.sisfacil.passefacil.util.ConvertJson;
 
 /**
  * Classe responsavel por autenticar o usuario*/
-public class Autenticacao {
+public class NegAutenticar {
 	
 	private CredencialDao credencialDao;
 	//TODO implementar criptografia
