@@ -6,6 +6,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.com.sisfacil.passefacil.vo.ObjetoComunicacaoVO;
+
 public class ServiceRegistrar {
 
 	
@@ -14,10 +16,29 @@ public class ServiceRegistrar {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String registrarPessoa(String pessoa){
+		try{
+			
+			ObjetoComunicacaoVO objetoComunicacaoVo = new ObjetoComunicacaoVO();
+			
+			
+			
+			
+		}catch(Exception erro){
+			
+		}
+		
+		return "Registrado com sucesso!";
+	}
 	
+	public void ConvertaCredencial(){
 		
-		//TODO Implementar o service de registrar pessoa
+	}
+	
+	public void ConvertaCredencialAcesso(){
 		
-		return "";
+	}
+	
+	public void ConvertaConta(){
+		
 	}
 }
