@@ -3,7 +3,6 @@ package br.com.sisfacil.passefacil.util;
 import br.com.sisfacil.passefacil.entidade.Credencial;
 import br.com.sisfacil.passefacil.vo.ObjetoComunicacaoVO;
 
-import com.google.gson.Gson;
 
 
 public class ConvertJson {
@@ -15,7 +14,7 @@ public class ConvertJson {
 	}
 
 	public static String ConvertObjetoEmJson(Object objeto) {
-		gson = new Gson();
+		Gson gson = new Gson();
 		return gson.toJson(objeto);
 	}
 	

@@ -16,8 +16,6 @@ public class Credencial {
 	
 	private String login;
 	private String senha;
-	private String confirmaSenha;
-	private String email;
 	
 
 	public Integer getId() {
@@ -37,17 +35,5 @@ public class Credencial {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-	public String getConfirmaSenha() {
-		return confirmaSenha;
-	}
-	public void setConfirmaSenha(String confirmaSenha) {
-		this.confirmaSenha = confirmaSenha;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 }
