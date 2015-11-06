@@ -27,7 +27,21 @@ public class ServiceRegistrar {
 		Pessoa pessoa = new Pessoa();
 		pessoa.setNome("aureliano");
 		pessoa.setCpf("67266288718");
-		
+		pessoa.setTelefone("99222085");
+		pessoa.setDataNascimento(UtilitarioDateTime.ToHoraAtual());
+		Conta conta = new Conta();
+		conta.setSaldo(9.0);
+		pessoa.setConta(conta);
+		Credencial credencial = new Credencial();
+		credencial.setLogin("aurelianos18@gmail.com");
+		credencial.setSenha("132");
+		pessoa.setCredencial(credencial);
+		CredencialAcesso credencialAcesso = new CredencialAcesso();
+		credencialAcesso.setNfcid("1231231231");
+		Aparelho aparelho = new Aparelho();
+		aparelho.setImei("12313245645");
+		credencialAcesso.setAparelho(aparelho);
+		pessoa.setCredencialAcesso(credencialAcesso);
 		
 		return ConvertJson.ConvertObjetoEmJson(pessoa);
 	}
