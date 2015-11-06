@@ -1,5 +1,7 @@
 package br.com.sisfacil.passefacil.util;
 
+import com.google.gson.Gson;
+
 import br.com.sisfacil.passefacil.entidade.Credencial;
 import br.com.sisfacil.passefacil.vo.ObjetoComunicacaoVO;
 
